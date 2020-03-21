@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<title>Formulário</title>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<form id="formulario" action="http://localhost:8080" method="post">
+					<!-- NOME -->
+					<div class="form-group">
+						<label for="nome">Nome</label>
+						<input type="text" onchange="validateName(document.getElementById('nome'))" id="nome" name="nome" class="form-control" placeholder="José da Silva" required>
+					</div>
+					<!-- TELEFONE -->
+					<div class="form-group">
+						<label for="tel">Telefone</label>
+						<input type="text" onchange="validateTel(document.getElementById('tel'))" id="tel" name="telefone" class="form-control" placeholder="12-12345678" required>
+					</div>
+					<br>
+					<!-- COMO CONHECEU-->
+					<div class="form-group">
+						<select id="media" name="media" class="form-control" required>
+							<option value="" selected disabled hidden>Como nos conheceu?</option>
+							<option value="TV">TV</option>
+							<option value="Internet">Internet</option>
+							<option value="Outro">Outro</option>
+						</select>
+					</div>
+					<!-- SE POSSUI REDE SOCIAL -->
+					<div class="form-group">
+						<label>Possui rede social?</label>
+						<label><input type="radio" onclick="enableChk()" id="sim" name="possuiRedeSocial" value="Sim" required checked> Sim</label>
+						<label><input type="radio" onclick="disableChk()" id="nao" name="possuiRedeSocial" value="Não"> Não</label>
+					</div>
+					<div class="form-group">
+
+						// SE SIM QUAIS
+						<label>Quais?</label>
+						<br>
+						<input type="checkbox" id="fb" name="redeSocial" value="Facebook">
+						<label for="fb">Facebook</label><br>
+						<input type="checkbox" id="lkd" name="redeSocial" value="Linkedin">
+						<label for="lkd">LinkedIn</label><br>
+						<input type="checkbox" id="ig" name="redeSocial" value="Instagram">
+						<label for="ig">Instagram</label>
+					</div>
+
+					<div class="form-group">
+						<button type="submit" id="submit" onclick="return valForm()" class="btn btn-success">Cadastrar</button>
+					</div>
+				</form>
+				<p id="output"></p>
+			</div>
+		</div>
+	</div>
+
+	<script src="Script.js"></script>
+	<script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+</body>
+</html>
